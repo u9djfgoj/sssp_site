@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>СССП</title>
+  <link rel="icon" href="ЛогоДискорд.ico" type="image/x-icon">
+  <style>
+    /* Стили для контейнера, выравнивающего кнопки по центру страницы */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    /* Стили для кнопки */
+    .white-button {
+      background-color: white;
+      border: 2px solid white;
+      color: black;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 8px;
+      position: relative;
+      z-index: 2;
+      transition: background-color 0.5s ease;
+    }
+    
+    /* Стили для прозрачных кнопок */
+    .transparent-button {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 24px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+      transition: background-color 0.5s ease;
+    }
+    
+    /* Стили для текста */
+    body {
+      font-family: DejaVu Sans Mono, monospace;
+      margin: 0;
+    }
+    
+    /* Стили для заднего фона */
+    .background {
+      background-image: url('planet-space-mars-4k-8l.jpg');
+      background-color: rgba(0, 0, 0, 0.5);
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+
+    /* Стили для контурного текста */
+    .outline {
+      text-shadow:
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
+      color: transparent;
+      margin: 0;
+      -webkit-text-stroke: 2px white;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Задний фон с фотографией -->
+  <div class="background">
+    <!-- Контейнер, выравнивающий кнопку по центру страницы -->
+    <div class="button-container">
+      <!-- Кнопка, которая перенаправляет на другую страницу -->
+      <a href="https://store.steampowered.com/app/1255460/Space_Station_14/" class="white-button">Начать играть</a>
+      <div class="button-group">
+        <a href="zakon.html" class="transparent-button">Космический Закон</a>
+        <a href="srp.html" class="transparent-button">Стандартные Рабочие Процедуры</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Функция, которая срабатывает при наведении на прозрачную кнопку
+  function onMouseEnter(button) {
+    button.classList.remove('transparent-button');
+    button.classList.add('white-button');
+  }
+
+  // Функция, которая срабатывает при уходе курсора с прозрачной кнопки
+  function onMouseLeave(button) {
+    button.classList.remove('white-button');
+    button.classList.add('transparent-button');
+  }
+
+  // Получаем все прозрачные кнопки на странице
+  const transparentButtons = document.querySelectorAll('.transparent-button');
+
+  // Проходимся по каждой прозрачной кнопке и добавляем слушатели событий для наведения и ухода курсора
+  transparentButtons.forEach(button => {
+    button.addEventListener('mouseenter', () => onMouseEnter(button));
+    button.addEventListener('mouseleave', () => onMouseLeave(button));
+  });
+</script>
